@@ -15,16 +15,18 @@
       <div class="content">
         <h1>My ToDo List</h1>
         <form id="todoForm">
-          <label for="taskInput">Task</label>
-          <input type="text" id="taskInput" placeholder="Task" required />
-
-          <label for="priorityInput">Prio</label>
-          <select id="priorityInput">
-            <option value="1">High</option>
-            <option value="2" selected>Medium</option>
-            <option value="3">Low</option>
-          </select>
-
+          <div>
+            <label for="taskInput">Task</label>
+            <input type="text" id="taskInput" placeholder="Task" required />
+          </div>
+          <div>
+            <label for="priorityInput">Prio</label>
+            <select id="priorityInput">
+              <option value="1">High</option>
+              <option value="2" selected>Medium</option>
+              <option value="3">Low</option>
+            </select>
+          </div>
           <button class="submit-button" type="submit">Add task</button>
         </form>
         <p id="errorMsg"></p>
