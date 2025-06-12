@@ -1,8 +1,23 @@
-import type { Todo } from './todo';  // Imports the type Todo from todo.ts
-import { TodoList } from './todo';  // Import the class with actual logic
-import './style.css';  // Import global styles
+/**
+ * app.ts
+ * This is the main application file that connects the logic from the
+ * "TodoList" class (in todo.ts) with the DOM user interface
+ *
+ * Responsibilities:
+ * - Creates an instance of "TodoList" and initializes the app
+ * - Handles form input and user interactions
+ * - Renders the current state of the todo list to the DOM
+ * - Updates the UI when the list changes
+ *
+ * All DOM access and manipulation are handled here, keeping
+ * logic and presentation clearly separated
+ */
 
-// Create a new instance of TodoList - loads existing todos from LocalStorage
+import type { Todo } from './todo'; // Imports the type Todo from todo.ts
+import { TodoList } from './todo'; // Import the class with actual logic
+import './style.css'; // Import global styles
+
+// Create a new instance of TodoList, loads existing todos from LocalStorage
 const todoList = new TodoList();
 
 // DOM element references
@@ -15,9 +30,9 @@ const todoUL = document.getElementById('todoList') as HTMLUListElement;
 const errorMsg = document.getElementById('errorMsg') as HTMLParagraphElement;
 
 /**
- * Renders the todo list items to the <ul> element in the DOM.
+ * Renders the todo list items to the <ul> element in the DOM
  * Clears the list before rendering, loops through each todo,
- * and appends a <li> element with content and a "Mark as done" button (if not already completed).
+ * and appends a <li> element with content and a "Mark as done" button (if not already completed)
  */
 function renderTodos() {
   // Clear the existing list
@@ -47,9 +62,9 @@ function renderTodos() {
   });
 
   /**
-   * Add event listeners to all "Mark as done" buttons.
+   * Add event listeners to all "Mark as done" buttons
    * Extract the index from the button's data attribute,
-   * mark the todo as completed, and re-render the list.
+   * mark the todo as completed, and re-render the list
    */
   document.querySelectorAll('.mark-completed').forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -61,12 +76,12 @@ function renderTodos() {
 }
 
 /**
- * Handles form submission for adding a new todo.
+ * Handles form submission for adding a new todo
  * Validates input, shows error if needed,
- * and triggers list re-render if successful.
+ * and triggers list re-render if successful
  */
-// Not needed in this version, since Task = Required and Prio = Selectbox
-// But if I will add other content to my to do list...
+// Not really needed in this version, since Task = Required and Prio = Selectbox
+// But if I will add other content to my to do list this is still very handy
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const task = taskInput.value;

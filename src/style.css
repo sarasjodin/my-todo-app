@@ -4,7 +4,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  /* color: rgba(255, 255, 255, 0.87); */
   background-color: #242424;
 
   font-synthesis: none;
@@ -26,7 +25,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: flex-start;
   min-width: 320px;
   min-height: 100vh;
   padding: 2rem;
@@ -52,13 +52,19 @@ h1 {
   filter: drop-shadow(0 0 2em #213547);
 }
 
-.container {
+.app {
   max-width: 450px;
-  margin: auto;
   background: white;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
 }
 
 button {

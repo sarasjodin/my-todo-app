@@ -1,3 +1,21 @@
+/**
+ * todo.ts
+ * This file defines the "Todo" interface and the "TodoList" class,
+ * which handles the core logic for managing todo items:
+ * creating, storing, updating, and retrieving them.
+ *
+ * The class is purely focused on data and business logic, it performs
+ * no DOM manipulation. This separation makes the class reusable and
+ * easier to test independently of the UI.
+ *
+ * Class responsibilities:
+ * - addTodo(): Validates and adds a new todo
+ * - markTodoCompleted(): Marks a specific todo as completed
+ * - getTodos(): Returns the current list of todos
+ * - saveToLocalStorage(): Saves todos to browser storage
+ * - loadFromLocalStorage(): Loads todos from browser storage on init
+ */
+
 // Defining Todo
 export interface Todo {
   task: string; // required form field
@@ -15,7 +33,7 @@ export class TodoList {
   }
 
   /**
-   * Adds a new todo to the list if inputs are valid.
+   * Adds a new todo to the list if inputs are valid
    * @param task - The task description
    * @param priority - A number from 1 to 3 (prio)
    * @returns true if added successfully, false if input was invalid
@@ -41,7 +59,7 @@ export class TodoList {
   }
 
   /**
-   * Marks a todo as completed by its index.
+   * Marks a todo as completed by its index
    * @param index - Position of the todo in the list
    */
   markTodoCompleted(index: number): void {
@@ -54,7 +72,7 @@ export class TodoList {
   }
 
   /**
-   * Returns the full list of todos.
+   * Returns the full list of todos
    * @returns An array of all todos
    */
   getTodos(): Todo[] {
@@ -62,7 +80,7 @@ export class TodoList {
   }
 
   /**
-   * Saves the current todo list to the browser's LocalStorage.
+   * Saves the current todo list to the browser's LocalStorage
    */
   saveToLocalStorage(): void {
     localStorage.setItem('todos', JSON.stringify(this.todos));
@@ -81,7 +99,7 @@ export class TodoList {
 
   /**
    * Loads todos from LocalStorage if available,
-   * and replaces the current todo array.
+   * and replaces the current todo array
    */
   loadFromLocalStorage(): void {
     const saved = localStorage.getItem('todos');
