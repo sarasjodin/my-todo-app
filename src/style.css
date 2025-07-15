@@ -104,6 +104,10 @@ button {
   flex: 1;
 }
 
+select {
+  max-width: 120px;
+}
+
 .submit-button {
   flex: none;
   white-space: nowrap;

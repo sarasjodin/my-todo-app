@@ -1,13 +1,14 @@
 {
   "name": "my-todo-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
+    "clean": "del /s /q dist\\* && rmdir /s /q dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",

@@ -43,7 +43,6 @@ function renderTodos() {
 
   // Loop through and render each todo
   todos.forEach((todo: Todo, index: number) => {
-    console.log(todo.task);
     const li = document.createElement('li');
     li.className = todo.completed ? 'completed' : '';
 
@@ -87,15 +86,17 @@ form.addEventListener('submit', (e) => {
   const task = taskInput.value;
   const priority = +priorityInput.value;
 
-  const success = todoList.addTodo(task, priority);
-  if (!success) {
-    // Show error message if validation failed
-    errorMsg.textContent = 'Error: Add a task and priority (1–3)';
+  const result = todoList.addTodo(task, priority);
+  if (result !== 'ok') {
+    if (result === 'duplicate') {
+      errorMsg.textContent = 'Error: Task already exists';
+    } else if (result === 'invalid') {
+      errorMsg.textContent = 'Error: Add a task and priority (1–3)';
+    }
   } else {
-    // Clear error, reset input fields
     errorMsg.textContent = '';
     taskInput.value = '';
-    priorityInput.value = '2'; // Default to medium, mainly due to "selected" in html: <option value="2" selected>Medium</option>
+    priorityInput.value = '2';
     renderTodos();
   }
 });

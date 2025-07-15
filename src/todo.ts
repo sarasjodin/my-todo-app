@@ -33,20 +33,35 @@ export class TodoList {
   }
 
   /**
-   * Adds a new todo to the list if inputs are valid
+   * Attempts to add a new todo item to the list.
+   * Validates input values and checks for duplicate tasks before adding.
+   *
    * @param task - The task description
    * @param priority - A number from 1 to 3 (prio)
-   * @returns true if added successfully, false if input was invalid
+   * @returns
+   *   - ok if the todo was added successfully
+   *   - invalid if priority not met
+   *   - duplicate if a todo with the same task already exists
    */
-  addTodo(task: string, priority: number): boolean {
+  addTodo(task: string, priority: number): 'ok' | 'invalid' | 'duplicate' {
+    const trimmedTask = task.trim();
+
     // Validate inputs where task must not be empty priority must be between 1 and 3
     if (!task.trim() || priority < 1 || priority > 3) {
-      return false;
+      return 'invalid';
+    }
+
+    // Check if task exists
+    const exists = this.todos.some(
+      (todo) => todo.task.toLowerCase() === trimmedTask.toLowerCase()
+    );
+    if (exists) {
+      return 'duplicate';
     }
 
     // Create a new todo item with default completed = false
     const newTodo: Todo = {
-      task,
+      task: trimmedTask,
       completed: false,
       priority
     };
@@ -55,7 +70,7 @@ export class TodoList {
     this.todos.push(newTodo);
     // Whole list is being saved
     this.saveToLocalStorage();
-    return true;
+    return 'ok';
   }
 
   /**
@@ -85,17 +100,6 @@ export class TodoList {
   saveToLocalStorage(): void {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
-
-  // As key-value pair
-  // Key: "todos"
-  // Value: array of todo objects /JSON string
-  // [
-  //   {
-  //     task: 'Study';
-  //     completed: false;
-  //     priority: 1;
-  //   }
-  // ];
 
   /**
    * Loads todos from LocalStorage if available,
