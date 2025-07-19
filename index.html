@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/my-todo-app/todo.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My ToDo app</title>
+    <script type="module" crossorigin src="/my-todo-app/assets/main-DDrQrxxA.js"></script>
+    <link rel="stylesheet" crossorigin href="/my-todo-app/assets/main-CU5HOL1f.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="content">
+        <div class="header-container">
+          <img
+            src="/my-todo-app/todo.svg"
+            alt="Todo logo"
+            class="logo"
+            height="55"
+            width="55"
+          />
+          <h1>My ToDo App</h1>
+        </div>
+        <h2>Add tasks</h2>
+        <form id="todoForm">
+          <div class="task-div">
+            <label for="taskInput">Task</label><br />
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Add task description"
+              required
+            />
+          </div>
+          <div class="prio-div">
+            <label for="priorityInput">Prio</label><br />
+            <select id="priorityInput">
+              <option value="1">High</option>
+              <option value="2" selected>Medium</option>
+              <option value="3">Low</option>
+            </select>
+          </div>
+          <button class="submit-button" type="submit">Add task</button>
+        </form>
+        <div class="message-container">
+          <p id="errorMsg" class="message error"></p>
+          <p id="successMsg" class="message success"></p>
+        </div>
+        <h2>My tasks</h2>
+        <ul id="todoList"></ul>
+        <div id="todo-container"></div>
+      </div>
+      <footer class="site-footer">
+        <div class="footer-row">
+          <div class="footer-column column1">
+            <h2>Sara</h2>
+            <figure>
+              <picture>
+                <source
+                  srcset="data:image/avif;base64,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"
+                  type="image/avif"
+                  width="200"
+                  height="200"
+                />
+
+                <source
+                  srcset="/my-todo-app/assets/developer-200x200-GbQKB3Cu.webp"
+                  type="image/webp"
+                  width="200"
+                  height="200"
+                />
+
+                <img
+                  src="/my-todo-app/assets/developer-200x200-BYKFALp-.jpg"
+                  alt="Portrait of Sara"
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                />
+              </picture>
+              <figcaption>I'm Sara Sjödin Scolari, the developer.</figcaption>
+            </figure>
+          </div>
+          <div class="footer-column column2">
+            <h2>About me</h2>
+            <p>
+              I am curious, and driven by a desire to create user-friendly and
+              accessible solutions.
+            </p>
+            <p>
+              Above all, I believe that development is about problem-solving and
+              empathy in collaboration with the user.
+            </p>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div class="footer-column column3">
+            <h2>About this site</h2>
+            <p>
+              This site is part of a ToDo lab project built with TypeScript,
+              created as part of my university coursework at Mid Sweden
+              University.
+            </p>
+          </div>
+          <div class="footer-column column4">
+            <h2>Contact me</h2>
+            <p class="icons-container">
+              <a
+                href="mailto:sara@sarasjodin.com"
+                class="icon-wrapper"
+                aria-label="Email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <g class="mailbkg">
+                    <rect width="32" height="32" />
+                  </g>
+                  <g>
+                    <g class="mail">
+                      <rect
+                        x="6.58"
+                        y="9.03"
+                        width="18.83"
+                        height="13.95"
+                        class="stroke-line"
+                      />
+                      <polygon
+                        points="16 18.64 6.58 9.03 25.42 9.03 16 18.64"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="6.58"
+                        y1="22.97"
+                        x2="14.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="25.42"
+                        y1="22.97"
+                        x2="17.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://github.com/sarasjodin"
+                class="icon-wrapper"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Sara's GitHub"
+              >
+                <svg
+                  class="github-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    class="gh-logo"
+                    d="M16.01,6.74c-5.21,0-9.42,4.24-9.42,9.49,0,4.2,2.7,7.75,6.44,9.01.47.09.64-.2.64-.46,0-.22-.02-.97-.02-1.76-2.62.57-3.17-1.13-3.17-1.13-.42-1.1-1.05-1.38-1.05-1.38-.86-.58.06-.58.06-.58.95.06,1.45.97,1.45.97.84,1.45,2.2,1.04,2.75.79.08-.61.33-1.04.59-1.27-2.09-.22-4.29-1.04-4.29-4.68,0-1.04.37-1.89.97-2.55-.09-.24-.42-1.21.09-2.52,0,0,.8-.25,2.59.97.77-.21,1.56-.31,2.36-.31.8,0,1.61.11,2.36.31,1.79-1.23,2.59-.97,2.59-.97.52,1.3.19,2.28.09,2.52.61.66.97,1.51.97,2.55,0,3.65-2.2,4.45-4.31,4.68.34.3.64.86.64,1.76,0,1.27-.02,2.29-.02,2.61,0,.25.17.55.64.46,3.74-1.26,6.44-4.81,6.44-9.01.02-5.25-4.21-9.49-9.41-9.49Z"
+                  />
+                  <path
+                    class="gh-bkg"
+                    d="M0,0v32h32V0H0ZM18.97,25.24c-.47.09-.64-.2-.64-.46,0-.31.02-1.34.02-2.61,0-.9-.3-1.46-.64-1.76,2.11-.24,4.31-1.04,4.31-4.68,0-1.04-.36-1.89-.97-2.55.09-.24.42-1.21-.09-2.52,0,0-.8-.25-2.59.97-.75-.2-1.56-.31-2.36-.31-.8,0-1.59.11-2.36.31-1.79-1.23-2.59-.97-2.59-.97-.52,1.3-.19,2.28-.09,2.52-.59.66-.97,1.51-.97,2.55,0,3.65,2.2,4.46,4.29,4.68-.27.24-.52.66-.59,1.27-.55.25-1.9.66-2.75-.79,0,0-.5-.91-1.45-.97,0,0-.92,0-.06.58,0,0,.62.28,1.05,1.38,0,0,.55,1.7,3.17,1.13,0,.79.02,1.54.02,1.76,0,.25-.17.55-.64.46-3.74-1.26-6.44-4.81-6.44-9.01,0-5.25,4.21-9.49,9.42-9.49s9.42,4.24,9.41,9.49c0,4.2-2.7,7.75-6.44,9.01Z"
+                  />
+                </svg>
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
