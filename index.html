@@ -10,14 +10,29 @@
   <body>
     <div class="app">
       <div class="content">
-        <h1>My ToDo List</h1>
+        <div class="header-container">
+          <img
+            src="/todo.svg"
+            alt="Todo logo"
+            class="logo"
+            height="55"
+            width="55"
+          />
+          <h1>My ToDo App</h1>
+        </div>
+        <h2>Add tasks</h2>
         <form id="todoForm">
-          <div>
-            <label for="taskInput">Task</label>
-            <input type="text" id="taskInput" placeholder="Task" required />
+          <div class="task-div">
+            <label for="taskInput">Task</label><br />
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Add task description"
+              required
+            />
           </div>
-          <div>
-            <label for="priorityInput">Prio</label>
+          <div class="prio-div">
+            <label for="priorityInput">Prio</label><br />
             <select id="priorityInput">
               <option value="1">High</option>
               <option value="2" selected>Medium</option>
@@ -26,9 +41,136 @@
           </div>
           <button class="submit-button" type="submit">Add task</button>
         </form>
-        <p id="errorMsg"></p>
+        <div class="message-container">
+          <p id="errorMsg" class="message error"></p>
+          <p id="successMsg" class="message success"></p>
+        </div>
+        <h2>My tasks</h2>
         <ul id="todoList"></ul>
+        <div id="todo-container"></div>
       </div>
+      <footer class="site-footer">
+        <div class="footer-row">
+          <div class="footer-column column1">
+            <h2>Sara</h2>
+            <figure>
+              <picture>
+                <source
+                  srcset="src/images/developer-200x200.avif"
+                  type="image/avif"
+                  width="200"
+                  height="200"
+                />
+
+                <source
+                  srcset="src/images/developer-200x200.webp"
+                  type="image/webp"
+                  width="200"
+                  height="200"
+                />
+
+                <img
+                  src="src/images/developer-200x200.jpg"
+                  alt="Portrait of Sara"
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                />
+              </picture>
+              <figcaption>I'm Sara Sjödin Scolari, the developer.</figcaption>
+            </figure>
+          </div>
+          <div class="footer-column column2">
+            <h2>About me</h2>
+            <p>
+              I am curious, and driven by a desire to create user-friendly and
+              accessible solutions.
+            </p>
+            <p>
+              Above all, I believe that development is about problem-solving and
+              empathy in collaboration with the user.
+            </p>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div class="footer-column column3">
+            <h2>About this site</h2>
+            <p>
+              This site is part of a ToDo lab project built with TypeScript,
+              created as part of my university coursework at Mid Sweden
+              University.
+            </p>
+          </div>
+          <div class="footer-column column4">
+            <h2>Contact me</h2>
+            <p class="icons-container">
+              <a
+                href="mailto:sara@sarasjodin.com"
+                class="icon-wrapper"
+                aria-label="Email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <g class="mailbkg">
+                    <rect width="32" height="32" />
+                  </g>
+                  <g>
+                    <g class="mail">
+                      <rect
+                        x="6.58"
+                        y="9.03"
+                        width="18.83"
+                        height="13.95"
+                        class="stroke-line"
+                      />
+                      <polygon
+                        points="16 18.64 6.58 9.03 25.42 9.03 16 18.64"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="6.58"
+                        y1="22.97"
+                        x2="14.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                      <line
+                        x1="25.42"
+                        y1="22.97"
+                        x2="17.5"
+                        y2="17.11"
+                        class="stroke-line"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://github.com/sarasjodin"
+                class="icon-wrapper"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Sara's GitHub"
+              >
+                <svg
+                  class="github-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    class="gh-logo"
+                    d="M16.01,6.74c-5.21,0-9.42,4.24-9.42,9.49,0,4.2,2.7,7.75,6.44,9.01.47.09.64-.2.64-.46,0-.22-.02-.97-.02-1.76-2.62.57-3.17-1.13-3.17-1.13-.42-1.1-1.05-1.38-1.05-1.38-.86-.58.06-.58.06-.58.95.06,1.45.97,1.45.97.84,1.45,2.2,1.04,2.75.79.08-.61.33-1.04.59-1.27-2.09-.22-4.29-1.04-4.29-4.68,0-1.04.37-1.89.97-2.55-.09-.24-.42-1.21.09-2.52,0,0,.8-.25,2.59.97.77-.21,1.56-.31,2.36-.31.8,0,1.61.11,2.36.31,1.79-1.23,2.59-.97,2.59-.97.52,1.3.19,2.28.09,2.52.61.66.97,1.51.97,2.55,0,3.65-2.2,4.45-4.31,4.68.34.3.64.86.64,1.76,0,1.27-.02,2.29-.02,2.61,0,.25.17.55.64.46,3.74-1.26,6.44-4.81,6.44-9.01.02-5.25-4.21-9.49-9.41-9.49Z"
+                  />
+                  <path
+                    class="gh-bkg"
+                    d="M0,0v32h32V0H0ZM18.97,25.24c-.47.09-.64-.2-.64-.46,0-.31.02-1.34.02-2.61,0-.9-.3-1.46-.64-1.76,2.11-.24,4.31-1.04,4.31-4.68,0-1.04-.36-1.89-.97-2.55.09-.24.42-1.21-.09-2.52,0,0-.8-.25-2.59.97-.75-.2-1.56-.31-2.36-.31-.8,0-1.59.11-2.36.31-1.79-1.23-2.59-.97-2.59-.97-.52,1.3-.19,2.28-.09,2.52-.59.66-.97,1.51-.97,2.55,0,3.65,2.2,4.46,4.29,4.68-.27.24-.52.66-.59,1.27-.55.25-1.9.66-2.75-.79,0,0-.5-.91-1.45-.97,0,0-.92,0-.06.58,0,0,.62.28,1.05,1.38,0,0,.55,1.7,3.17,1.13,0,.79.02,1.54.02,1.76,0,.25-.17.55-.64.46-3.74-1.26-6.44-4.81-6.44-9.01,0-5.25,4.21-9.49,9.42-9.49s9.42,4.24,9.41,9.49c0,4.2-2.7,7.75-6.44,9.01Z"
+                  />
+                </svg>
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/app.ts"></script>
   </body>

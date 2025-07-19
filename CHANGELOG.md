@@ -12,9 +12,28 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.0.0]
+
+### Added
+
+- Refactored file structure for improved organization and maintainability.
+
+- Core functionality added to allow users to delete todos marked as completed.
+
+Changed
+
+- Refactored codebase to make future features and bug fixes easier to implement.
+
+Fixed
+
+- Minor bug fixes and styling improvements to enhance the overall user experience.
+
+---
+
 ## [1.0.1]
 
 ### Added
+
 - Duplicate task check in class logic (`TodoList`)
 - Error message if a task already exists
 - LICENSE file
@@ -25,6 +44,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [1.0.0] - 2025-07-15
 
 ### Added
+
 - First deployable version of the app
 - Core functionality: add, view, and mark todos as completed
 - Todo class with OOP principles and LocalStorage
