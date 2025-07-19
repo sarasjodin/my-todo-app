@@ -36,3 +36,7 @@ Thumbs.db
 # Vite cache
 .vite/
 .vite copy/
+
+# Cache
+.cache/
+.cache copy/
