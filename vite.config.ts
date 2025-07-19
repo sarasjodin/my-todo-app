@@ -10,5 +10,6 @@ export default defineConfig({
       }
     },
     sourcemap: true
-  }
+  },
+  assetsInclude: ['**/*.avif', '**/*.webp', '**/*.jpg'] // Bildformat som ska hanteras av Vite
 });
