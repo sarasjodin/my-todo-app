@@ -52,7 +52,8 @@ export function renderTodos(todoList: TodoList) {
   sortedTodos.forEach((todo) => {
     const item = document.createElement('div'); // Create a new div element for each todo
     item.className = 'todo-item'; // Assign a class to the item for styling
-    item.dataset.createdat = todo.createdAt.toString(); // Set the createdAt as a data attribute for identification
+    item.dataset.createdat =
+      todo.createdAt?.toString() || Date.now().toString(); // Set the createdAt as a data attribute for identification
 
     // Set the HTML content for each todo item
     item.innerHTML = `

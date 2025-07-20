@@ -50,7 +50,8 @@ export class TodoList {
       task: trimmedTask || 'Unnamed task',
       priority,
       completed: false,
-      createdAt: Date.now() // Always ensure createdAt is set
+      createdAt: Date.now(), // Always ensure createdAt is set
+      completedAt: undefined // Use undefined if not completed
     });
 
     // Whole list is being saved
@@ -128,6 +129,18 @@ export class TodoList {
     if (data) {
       // Parse the JSON string back into a todo array
       this.todos = JSON.parse(data);
+
+      // Check that all criterias exist
+      this.todos = this.todos.map((todo: any) => {
+        return {
+          task: todo.task || '', // Make sure there is a task
+          completed: todo.completed !== undefined ? todo.completed : false,
+          priority:
+            todo.priority >= 1 && todo.priority <= 3 ? todo.priority : 2,
+          createdAt: todo.createdAt || Date.now(), // If createdAt is missing, add actual time
+          completedAt: todo.completedAt || undefined // If completedAt is missing, add undefined
+        };
+      });
     }
   }
 }
