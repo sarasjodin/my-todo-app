@@ -18,7 +18,12 @@ Users can manage tasks with different priority levels and mark items as complete
 
 - ✅ Add new todos with priority
 - ✅ Mark todos as completed
+- ✅ Delete todos
 - 🔍 Focus on: **modularity**, **LocalStorage usage**, **object-oriented programming (OOP)**
+
+---
+
+<img width="auto" height="auto" alt="Part of my ToDo app" src="https://github.com/user-attachments/assets/3902fbe8-d0cc-418f-9ca5-18c28d095289" />
 
 ---
 
@@ -46,33 +51,49 @@ I have learnt how to use interfaces, type systems, and LocalStorage.
 ### Core Functionality:
 - Add new tasks with a description and priority (1–3)
 - Mark tasks as completed
+- Delete tasks
 - Display a full list of todos
 - Persist the list using LocalStorage between sessions
 
 ### TypeScript Structure:
 
+- An "app.ts" file serves as the main application entry point.
+It integrates all components, managing the application's state
+and user interactions while delegating specific tasks to the appropriate modules.
+
 A Todo interface with:
 - task: string
 - completed: boolean
 - priority: number (1 = high, 3 = low)
+- createdAt: number
+- completedAt?: number
 
 A TodoList class that includes:
 - todos: array of Todo
 - addTodo(task: string, priority: number): boolean
-- markTodoCompleted(index: number): void
+- deleteTodo(createdAt: number): void
+- toggleTodoCompleted(createdAt: number): boolean | undefined
 - getTodos(): Todo[]
 - saveToLocalStorage(): void
 - loadFromLocalStorage(): void
 
+- A "todoEvents" includes all eventhandlers
+- A "ui/messages" that handles the messages for the user
+- A "ui/renderTodos" that handles the rendering of the todo items to the DOM
+
 Constructor initializes and loads todos from LocalStorage.
-DOM rendering is handled separately (not inside the class). Class methods return values that can be used in the frontend.
-All input validation is handled in the class. If invalid input is given, methods return false and the site handles the error messaging.
+DOM rendering is handled separately by the renderTodos module.
+Methods in the TodoList class handle all todo operations like
+adding, deleting, and toggling completion.
+The class also performs input validation, returning false
+if invalid input is given, while error and success messages
+are handled by the messages module.
 
 ---
 
 ## Folder Structure
 
-<img src="" alt="folder structure" width="150"/>
+<img width="150" height="auto" alt="folder structure" src="https://github.com/user-attachments/assets/d82073ce-f1b8-41d6-a92e-4eecfa14ad7a" />
 
 ---
 
