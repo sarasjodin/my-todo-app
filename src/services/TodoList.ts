@@ -47,10 +47,10 @@ export class TodoList {
 
     // Create and add a new todo item with default completed = false
     this.todos.push({
-      task: trimmedTask,
+      task: trimmedTask || 'Unnamed task',
       priority,
       completed: false,
-      createdAt: Date.now()
+      createdAt: Date.now() // Always ensure createdAt is set
     });
 
     // Whole list is being saved
