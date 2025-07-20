@@ -12,7 +12,17 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [2.0.0]
+## [2.1.0] - 2025-07-20
+
+### Added
+
+- Stabilization: The issue where createdAt was not correctly set in some scenarios has been addressed, and the app now works without JavaScript errors in the deployed version.
+
+- All images have been moved to the public folder.
+
+---
+
+## [2.0.0] - 2025-07-19
 
 ### Added
 
